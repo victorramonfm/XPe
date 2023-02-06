@@ -1,0 +1,43 @@
+<html>
+
+<script>
+    function checkIsAPrimeNumber(receivedNumber) {
+        var isAPrimeNumber = true;
+
+        for (let index = 2; index < receivedNumber; index++) {
+            var isReceivedNumberDivisibleByIndex = receivedNumber % index == 0;
+
+            if (isReceivedNumberDivisibleByIndex) {
+                var isAPrimeNumber = false;
+                break;
+            }
+        }
+
+        return isAPrimeNumber;
+    }
+
+    function primeNumbersLessThanX(receivedNumber) {
+        var arrayOfPrimeNumbers = [];
+
+        for (let index = 2; index < receivedNumber; index++) {
+            if (checkIsAPrimeNumber(index)) {
+                arrayOfPrimeNumbers.push(index);
+            }
+        }
+
+        return arrayOfPrimeNumbers;
+    }
+
+    function sumOfPrimeNumbersLessThanX(receivedNumber) {
+        var sumOfPrimeNumbers = 0;
+        var primeNumbers = primeNumbersLessThanX(receivedNumber);
+
+        for (let index = 0; index < primeNumbers.length; index++) {
+            sumOfPrimeNumbers += primeNumbers[index];
+        }
+
+        return sumOfPrimeNumbers
+    }
+</script>
+
+</html>
